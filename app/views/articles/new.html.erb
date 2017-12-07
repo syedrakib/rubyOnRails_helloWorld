@@ -30,4 +30,7 @@
 
 <% end %>
 
+<% if @article.errors.any? %>
+  <p><%= link_to 'Refresh form', new_article_path %></p>
+<% end %>
 <%= link_to 'Home', articles_path %>
