@@ -8,6 +8,18 @@
   <%= @article.text %>
 </p>
 
+<% if @article.comments.any? %>
+  <hr />
+  <h3>Comments:</h3>
+  <% @article.comments.each do |comment| %>
+    <p>
+      <strong>Commenter: </strong><%= comment.commenter %>
+      <br />
+      <strong>Comment: </strong><%= comment.body %>
+    </p>
+  <% end %>
+<% end %>
+
 <hr />
 <h3>Add a comment:</h3>
 <%= form_with model: [ @article, Comment.new ], local: true do |form| %>
